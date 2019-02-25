@@ -1,0 +1,133 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+div.fixedheading {
+    padding: 20px;
+    margin-top: 30px;
+    height: 960px;
+    background-color: #ffffff;
+}
+
+.img1 {
+    float: left;
+    padding: 10px;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+body {
+    background-image: url('../images/crossline-lines.png');
+    width: 960px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.portfolio{
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1.forPortfolio{
+    font-size: 50px;
+    word-break: break-all;
+}
+
+.row{
+    margin: 8px -16px;
+}
+
+/* Add padding between each column */
+.row,
+.row > .column {
+    padding: 8px;
+}
+
+/* create 4 columns with floats */
+.column{
+    float: left;
+    width: 25%;
+}
+
+/* clear floats after rows otherwise it gets freaky results */
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.content{
+    background-color: white;
+    padding: 10px;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+}

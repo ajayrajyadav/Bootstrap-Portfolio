@@ -58,7 +58,7 @@ $(document).ready(function () {
         $("#email-panel").append($("<label>").attr("for","email").html("Email"));
         $("#the-form").append($("<div>").addClass("row").attr("id","subject-row"));
         $("#subject-row").append($("<div>").addClass("input-field col s12").attr("id","subject-panel"));
-        $("#subject-panel").append($("<input>").addClass("validate").attr({mid:"subject", type: "text"}));
+        $("#subject-panel").append($("<input>").addClass("validate").attr({mid:"subject", type: "text", id: "subject"}));
         $("#subject-panel").append($("<label>").attr("for","subject").html("Subject"));
         $("#the-form").append($("<div>").addClass("row").attr("id","message-row"));
         $("#message-row").append($("<div>").addClass("input-field col s12").attr("id","message-panel"));
@@ -66,7 +66,7 @@ $(document).ready(function () {
         $("#message-panel").append($("<label>").addClass("").attr("for", "message").html("Your Message"));
         $("#the-form").append($("<div>").addClass("row").attr("id","btn-row"));
         $("#btn-row").append($("<div>").addClass("row").attr("id","btn-panel"));
-        $("#btn-panel").append($("<button>").addClass("btn waves-effect waves-light").attr({type: "submit", name:"action"}).html("Submit"));
+        $("#btn-panel").append($("<button>").addClass("btn waves-effect waves-light").attr({type: "submit", name:"action", id: "submit-btn"}).html("Submit"));
     }
 
     function buildPortfolioPage(){
@@ -74,23 +74,98 @@ $(document).ready(function () {
         $("#main-container").append($("<div>").addClass("container").attr("id","portfolio-container"));
         $("#portfolio-container").append($("<ul>").addClass("collapsible").attr("id","main-ul").attr("data-collapsible", "accordion"));
         $('.collapsible').collapsible();
+
         $("#main-ul").append($("<li>").attr("id","first-li"));
         $("#first-li").append($("<div>").addClass("collapsible-header").attr("id","first-header"));
         $("#first-header").append($("<i>").addClass("material-icons").html("filter_drama"));
-        // $("#first-header").html("First Section");
-        $("#first-header").append($("<a>").html("First Section"));
+        $("#first-header").append($("<a>").html("Giftastic"));
         $("#first-li").append($("<div>").addClass("collapsible-body").attr("id","first-li-body"));
-        // $("#first-li-body").append($("<div>").addClass("row").attr("id","first-card-row"));
-        // $("#first-card-row").append($("<div>").addClass("col s12 m4").attr("id","first-card-column"));
         $("#first-li-body").append($("<div>").addClass("card").attr("id","first-card"));
         $("#first-card").append($("<div>").addClass("card-image").attr("id","first-card-image"));
-        $("#first-card-image").append($("<img>").addClass("").attr("src","https://placehold.it/150x80?text=IMAGE"));
-        $("#first-card-image").append($("<span>").addClass("card-title").html("Hangman"));
+        $("#first-card-image").append($("<img>").addClass("").attr({src:"../assets/images/giftastic.png"}));
+        $("#first-card-image").append($("<span>").addClass("card-title").html("Giftastic"));
         $("#first-card").append($("<div>").addClass("card-content").attr("id", "first-card-content"));
-        $("#first-card-content").append($("<p>").html("The Hangmain game created in c++"));
+        $("#first-card-content").append($("<p>").html("Giphy API, bootstrap and jQuery"));
 
+        $("#main-ul").append($("<li>").attr("id","second-li"));
+        $("#second-li").append($("<div>").addClass("collapsible-header").attr("id","second-header"));
+        $("#second-header").append($("<i>").addClass("material-icons").html("filter_drama"));
+        $("#second-header").append($("<a>").html("Hangman"));
+        $("#second-li").append($("<div>").addClass("collapsible-body").attr("id","second-li-body"));
+        $("#second-li-body").append($("<div>").addClass("card").attr("id","second-card"));
+        $("#second-card").append($("<div>").addClass("card-image").attr("id","second-card-image"));
+        $("#second-card-image").append($("<img>").addClass("").attr({src:"../assets/images/hangman.png"}));
+        $("#second-card-image").append($("<span>").addClass("card-title").html("Giftastic"));
+        $("#second-card").append($("<div>").addClass("card-content").attr("id", "second-card-content"));
+        $("#second-card-content").append($("<p>").html("bootstrap, Javascript and jQuery"));
+
+        $("#main-ul").append($("<li>").attr("id","third-li"));
+        $("#third-li").append($("<div>").addClass("collapsible-header").attr("id","third-header"));
+        $("#third-header").append($("<i>").addClass("material-icons").html("filter_drama"));
+        $("#third-header").append($("<a>").html("Train Scheduler"));
+        $("#third-li").append($("<div>").addClass("collapsible-body").attr("id","third-li-body"));
+        $("#third-li-body").append($("<div>").addClass("card").attr("id","third-card"));
+        $("#third-card").append($("<div>").addClass("card-image").attr("id","third-card-image"));
+        $("#third-card-image").append($("<img>").addClass("").attr({src:"../assets/images/train.scheduler.png"}));
+        $("#third-card-image").append($("<span>").addClass("card-title").html("Giftastic"));
+        $("#third-card").append($("<div>").addClass("card-content").attr("id", "third-card-content"));
+        $("#third-card-content").append($("<p>").html("bootstrap, Javascript and jQuery"));
+
+        $("#main-ul").append($("<li>").attr("id","fourth-li"));
+        $("#fourth-li").append($("<div>").addClass("collapsible-header").attr("id","fourth-header"));
+        $("#fourth-header").append($("<i>").addClass("material-icons").html("filter_drama"));
+        $("#fourth-header").append($("<a>").html("Trivia Game"));
+        $("#fourth-li").append($("<div>").addClass("collapsible-body").attr("id","fourth-li-body"));
+        $("#fourth-li-body").append($("<div>").addClass("card").attr("id","fourth-card"));
+        $("#fourth-card").append($("<div>").addClass("card-image").attr("id","fourth-card-image"));
+        $("#fourth-card-image").append($("<img>").addClass("").attr({src:"../assets/images/triviagame.png"}));
+        $("#fourth-card-image").append($("<span>").addClass("card-title").html("Giftastic"));
+        $("#fourth-card").append($("<div>").addClass("card-content").attr("id", "fourth-card-content"));
+        $("#fourth-card-content").append($("<p>").html("bootstrap, Javascript and jQuery"));
+        
     }
-    
+
+    function popupErrorModal(message){
+        // $("#errorModal").empty();
+
+        var modalDiv = $("<div>").addClass("modal").attr("id", "error-modal");
+        modalDiv.append($("<div>").addClass("modal-content").attr("id","error-modal-content"));
+        $("#error-modal-content").append($("<h4>").html("information"));
+        $("#error-modal-content").append($("<p>").html(message));
+        $("#error-modal").append($("<div>").addClass("modal-footer").attr("id","error-modal-footer"));
+        $("#error-modal-footer").append($("<a>").addClass("modal-action modal-close waves-effect waves-red btn red lighten-1").html("close"));
+
+        $(".modal").modal();
+
+
+        // $(".container").append($("<div>").addClass("modal fade").attr({id: "errorModal", role: "dialog",}));
+
+        // $("#errorModal").append($("<div>").addClass("modal-dialog").attr({id:"errDialog", role: "document"}));
+        // $("#errDialog").append($("<div>").addClass("modal-content").attr("id", "errModalContent"));
+        // $("#errModalContent").append($("<div>").addClass("modal-header").attr("id","errModalheader"));
+        // $("#errModalheader").append($("<h5>").addClass("modal-title").attr("id", "errModalTitle").html("Error!"));
+        // $("#errModalContent").append($("<div>").addClass("modal-body").attr("id", "errModalBody").html(message))
+        // $("#errModalContent").append($("<div>").addClass("modal-footer").attr("id", "errModalFooter"));
+        // $("#errModalFooter").append($("<button>").addClass("btn btn-secondary").attr({id: "closeButton", type: "button"}).attr("data-dismiss", "modal").html("close"))
+        // $("#errorModal").modal("show");
+    }
+
+    function sendEmail(){
+        var usrAddress = $("#email").val().trim();
+        var usrSubject = $("#subject").val().trim();
+        var usrMessage = $("#message").val().trim();
+        
+        Email.send({
+            SecureToken : "268bc38c-e38b-4b77-8ccf-2309aaf935b1",
+            To : 'ajay.yadav@nidhiandajay.com',
+            From : usrAddress,
+            Subject : usrSubject,
+            Body : usrMessage
+        }).then(
+            message => alert(message)
+            // popupErrorModal(message)
+        );
+    }    
     
 
     $(document).on("click", "#contact-link", function () {
@@ -106,10 +181,13 @@ $(document).ready(function () {
     });
     $(document).on("click", "#AboutMe-link", function () {
         event.preventDefault();
-        console.log("aboutme-cliked");
-        
+        $("#main-container").empty();
+        buildAboutMePage();   
     });
-    
+    $(document).on("click", "#submit-btn", function () {
+        event.preventDefault();
+        sendEmail();
+    });
 
 });
 
